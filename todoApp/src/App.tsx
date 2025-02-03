@@ -25,7 +25,7 @@ function App() {
   return (
     <>
       <h1>todoApp</h1>
-      <AddTodo onAddTodo={handleAddTodo} />
+      <AddTodo handleAddTodo={handleAddTodo} />
     </>
   )
 }

@@ -1,13 +1,13 @@
 import { useState } from "react";
-import { OnAddTodo } from "./types";
+import { HandleAddTodo } from "./types";
 
-export default function AddTodo({ onAddTodo }: { onAddTodo: OnAddTodo }) {
+export default function AddTodo({ handleAddTodo }: { handleAddTodo: HandleAddTodo }) {
 	const [title, setTitle] = useState("")
 
 	function handleAddClick() {
 		if (title !== "") {
 			setTitle("")
-			onAddTodo(title)
+			handleAddTodo(title)
 		}
 	}
 
