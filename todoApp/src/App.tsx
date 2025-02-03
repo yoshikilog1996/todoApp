@@ -10,11 +10,11 @@ function App() {
 
   function handleAddTodo(title: string) {
     if (title) {
-      setTodos([
-        ...todos,
+      setTodos(prevTodos => [
+        ...prevTodos,
         {
           id: id + 1,
-          title: title,
+          title,
           isDone: false
         }
       ])
