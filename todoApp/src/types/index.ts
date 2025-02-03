@@ -1,7 +1,7 @@
 interface Todo {
     id: number,
     title: string,
-    done: boolean
+    isDone: boolean
 }
 
 type OnAddTodo = (title: string) => void

@@ -15,9 +15,10 @@ function App() {
         {
           id: ++id,
           title: title,
-          done: false
+          isDone: false
         }
       ])
+      console.log(id)
     }
   }
 
