@@ -3,22 +3,21 @@ import { Todo } from './types'
 import AddTodo from './AddTodo'
 
 const initialTodos: Todo[] = []
+let id = 0
 
 function App() {
   const [todos, setTodos] = useState<Todo[]>(initialTodos)
-  const [id, setId] = useState(0)
 
   function handleAddTodo(title: string) {
     if (title) {
       setTodos(prevTodos => [
         ...prevTodos,
         {
-          id: id + 1,
+          id: ++id,
           title,
           isDone: false
         }
       ])
-      setId(id + 1)
     }
   }
 
