@@ -1,6 +1,8 @@
 import { useRef, useState } from 'react'
 import { Todo } from './types'
 import AddTodo from './AddTodo'
+import TaskList from './TaskList'
+
 
 const initialTodos: Todo[] = []
 
@@ -22,10 +24,18 @@ function App() {
     }
   }
 
+  function handleChangeTodo(todo: Todo) {
+    setTodos(todos.map(t => (t.id === todo.id ? todo : t)))
+  }
+
   return (
     <>
       <h1>todoApp</h1>
       <AddTodo handleAddTodo={handleAddTodo} />
+      <TaskList
+        todos={todos}
+        handleChangeTodo={handleChangeTodo}
+      />
     </>
   )
 }
