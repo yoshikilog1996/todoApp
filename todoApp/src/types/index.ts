@@ -8,8 +8,12 @@ type HandleAddTodo = (title: string) => void
 
 type HandleChangeTodo = (todo: Todo) => void
 
+type HandleDeleteTodo = (todo: Todo) => void
+
+
 export type {
     Todo,
     HandleAddTodo,
-    HandleChangeTodo
+    HandleChangeTodo,
+    HandleDeleteTodo
 }
