@@ -1,7 +1,8 @@
-import { Todo, HandleChangeTodo } from './types'
+import { Todo, HandleChangeTodo, HandleDeleteTodo } from './types'
 
 export default function TaskList(
-	{ todos, handleChangeTodo }: { todos: Todo[]; handleChangeTodo: HandleChangeTodo }) {
+	{ todos, handleChangeTodo, handleDeleteTodo }:
+		{ todos: Todo[]; handleChangeTodo: HandleChangeTodo; handleDeleteTodo: HandleDeleteTodo }) {
 
 	return (
 		<div>
@@ -11,6 +12,7 @@ export default function TaskList(
 						<Task
 							todo={todo}
 							handleChangeTodo={handleChangeTodo}
+							handleDeleteTodo={handleDeleteTodo}
 						/>
 					</li>
 				)}
@@ -20,7 +22,8 @@ export default function TaskList(
 }
 
 function Task(
-	{ todo, handleChangeTodo }: { todo: Todo; handleChangeTodo: HandleChangeTodo }
+	{ todo, handleChangeTodo, handleDeleteTodo }:
+		{ todo: Todo; handleChangeTodo: HandleChangeTodo; handleDeleteTodo: HandleDeleteTodo }
 ) {
 
 	function handleChangeClick() {
@@ -28,6 +31,10 @@ function Task(
 			...todo,
 			isDone: !todo.isDone
 		})
+	}
+
+	function handleDeleteClick() {
+		handleDeleteTodo(todo)
 	}
 
 	return (
@@ -39,6 +46,7 @@ function Task(
 				/>
 				{todo.title}
 			</label>
+			<button onClick={handleDeleteClick}>delete</button>
 		</>
 	)
 }

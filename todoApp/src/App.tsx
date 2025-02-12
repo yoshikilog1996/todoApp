@@ -28,6 +28,10 @@ function App() {
     setTodos(todos.map(t => (t.id === todo.id ? todo : t)))
   }
 
+  function handleDeleteTodo(todo: Todo) {
+    setTodos(todos.filter(t => t.id !== todo.id))
+  }
+
   return (
     <>
       <h1>todoApp</h1>
@@ -35,6 +39,7 @@ function App() {
       <TaskList
         todos={todos}
         handleChangeTodo={handleChangeTodo}
+        handleDeleteTodo={handleDeleteTodo}
       />
     </>
   )
